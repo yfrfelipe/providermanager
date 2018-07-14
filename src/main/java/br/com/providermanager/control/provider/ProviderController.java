@@ -3,10 +3,12 @@ package br.com.providermanager.control.provider;
 import br.com.providermanager.control.AbstractWebService;
 import br.com.providermanager.control.validator.ProviderValidator;
 import br.com.providermanager.dto.provider.ProviderDTO;
+import br.com.providermanager.dto.provider.ProviderPageDTO;
 import br.com.providermanager.service.ProviderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -76,6 +79,13 @@ public class ProviderController implements AbstractWebService<ProviderDTO> {
         ProviderValidator.validateId(id);
 
         providerServiceImpl.delete(id);
+    }
+
+    @GetMapping(path = "/list")
+    @ApiOperation("Retrieve a list of providers by quantity.")
+    @Override
+    public ProviderPageDTO listByQuantity(@RequestParam final Integer quantity) {
+        return providerServiceImpl.listByQuantity(quantity);
     }
 
     @Override

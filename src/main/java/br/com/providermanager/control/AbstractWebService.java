@@ -1,6 +1,8 @@
 package br.com.providermanager.control;
 
 import br.com.providermanager.dto.AbstractDTO;
+import br.com.providermanager.dto.AbstractPageDTO;
+import java.util.List;
 import javax.servlet.Filter;
 
 public interface AbstractWebService <T extends AbstractDTO> extends AutoCloseable, Filter {
@@ -18,4 +20,6 @@ public interface AbstractWebService <T extends AbstractDTO> extends AutoCloseabl
     void put(Integer id, T modelDTO);
 
     void delete(Integer id);
+
+    AbstractPageDTO<T> listByQuantity(Integer quantity);
 }
