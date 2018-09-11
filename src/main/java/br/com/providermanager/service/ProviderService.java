@@ -1,6 +1,7 @@
 package br.com.providermanager.service;
 
 import br.com.providermanager.dto.provider.ProviderDTO;
+import br.com.providermanager.dto.provider.ProviderPageDTO;
 import br.com.providermanager.exception.southbound.provider.ProviderCreateException;
 import br.com.providermanager.exception.southbound.provider.ProviderDeleteException;
 import br.com.providermanager.exception.southbound.provider.ProviderNotFoundException;
@@ -12,4 +13,6 @@ public interface ProviderService extends AbstractService<
         ProviderUpdateException,
         ProviderNotFoundException,
         ProviderDeleteException> {
+
+    ProviderPageDTO listByQuantity(Integer quantity);
 }

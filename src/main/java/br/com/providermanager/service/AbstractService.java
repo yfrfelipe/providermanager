@@ -2,6 +2,7 @@ package br.com.providermanager.service;
 
 
 import br.com.providermanager.dto.AbstractDTO;
+import br.com.providermanager.dto.AbstractPageDTO;
 import br.com.providermanager.exception.southbound.AbstractCreateException;
 import br.com.providermanager.exception.southbound.AbstractDeleteException;
 import br.com.providermanager.exception.southbound.AbstractRetrievereException;
